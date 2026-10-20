@@ -53,7 +53,7 @@ Vault code:   |0> ──[ X ]──────────────[Measure]
 
 The H-gate circuit returned 512 zeros and 488 ones over 1,000 shots, consistent with a fair quantum coin within ordinary sampling variation.
 
-The seed circuit uses an (R_Y(1.159)) rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was:
+The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was:
 
 [
 P(1)=\frac{611}{2000}=0.3055
@@ -112,7 +112,7 @@ The no-cloning theorem is relevant to quantum information, but classical repetit
 | Module | Result | Supported conclusion |
 |---|---|---|
 | 01 — Gatekeeper | X, H and H–H behave as expected | Basic circuit checks pass in simulation |
-| 02 — Honest Coin | Seed circuit gives (P(1)=0.3055) | This configured seed is biased, as expected from its rotation |
+| 02 — Honest Coin | Seed circuit gives $P(1)=0.3055$ | This configured seed is biased, as expected from its rotation |
 | 03 — Two Observers | Bell correlations; optional CHSH (S\approx2.83) | Results match the ideal quantum model; not a physical Bell test |
 | 05 — Damaged Message | Majority voting decodes `ECHO` | The supplied data contain that message under the chosen code |
 
