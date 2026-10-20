@@ -53,11 +53,7 @@ Vault code:   |0> ──[ X ]──────────────[Measure]
 
 The H-gate circuit returned 512 zeros and 488 ones over 1,000 shots, consistent with a fair quantum coin within ordinary sampling variation.
 
-The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was:
-
-$
-P(1)=\frac{611}{2000}=0.3055
-$
+The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was $P(1)=\frac{611}{2000}=0.3055$.
 
 For this circuit, the theoretical probability is $\sin^2(1.159/2) \approx 0.30$, matching the observed result.
 
@@ -71,11 +67,7 @@ A histogram in the notebook makes the difference easy to see: 1,389 zeros versus
 
 ### Module 03 — Bell pair and CHSH calculation
 
-The notebook prepares a Bell pair using an H gate followed by a CNOT:
-
-$
-\lvert\Phi^+\rangle=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt{2}}
-$
+The notebook prepares a Bell pair using an H gate followed by a CNOT. The resulting Bell state is $\lvert\Phi^+\rangle=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt{2}}$.
 
 ```text
 Alice: |0> ──[ H ]──■────────[Measure]── c0
