@@ -28,8 +28,8 @@ The notebook reports the following results:
 
 | Test | Observed result | What it tells us |
 |---|---:|---|
-| X gate applied to $\\lvert 0 \\rangle$ | $1$ in $1{,}000$ shots | X flips the computational-basis bit |
-| H gate applied to $\\lvert 0 \\rangle$ | $0$: $1{,}016$; $1$: $984$ ($2{,}000$ shots) | Outcomes are approximately balanced |
+| X gate applied to $|0\rangle$ | $1$ in $1{,}000$ shots | X flips the computational-basis bit |
+| H gate applied to $|0\rangle$ | $0$: $1{,}016$; $1$: $984$ ($2{,}000$ shots) | Outcomes are approximately balanced |
 | H followed by H | $0$ in $1{,}000$ shots | H is its own inverse |
 | X on the first and third qubits | $101$ in $1{,}000$ shots | The circuit prepares the expected bit pattern |
 
@@ -38,15 +38,15 @@ These are useful control checks: they show that the simulated circuits behave as
 **Circuit sketches** (schematic; time runs from left to right):
 
 ```text
-X test:       $\\lvert 0 \\rangle$ ──[ X ]──[Measure]── c0
+X test:       `|0⟩` ──[ X ]──[Measure]── c0
 
-H test:       $\\lvert 0 \\rangle$ ──[ H ]──[Measure]── c0
+H test:       `|0⟩` ──[ H ]──[Measure]── c0
 
-H then H:     $\\lvert 0 \\rangle$ ──[ H ]──[ H ]──[Measure]── c0
+H then H:     `|0⟩` ──[ H ]──[ H ]──[Measure]── c0
 
-Vault code:   $\\lvert 0 \\rangle$ ──[ X ]──────────────[Measure]── c0
-              $\\lvert 0 \\rangle$ ─────────────────────[Measure]── c1
-              $\\lvert 0 \\rangle$ ──[ X ]──────────────[Measure]── c2
+Vault code:   `|0⟩` ──[ X ]──────────────[Measure]── c0
+              `|0⟩` ─────────────────────[Measure]── c1
+              `|0⟩` ──[ X ]──────────────[Measure]── c2
 ```
 
 ### Module 02 — The “Honest Coin” and seed bias
@@ -58,10 +58,10 @@ The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 
 For this circuit, the theoretical probability is $\sin^2(1.159/2) \approx 0.30$, matching the observed result.
 
 ```text
-Seed circuit:  $\\lvert 0 \\rangle$ ──[ RY(1.159) ]──[Measure]── c0
+Seed circuit:  `|0⟩` ──[ RY(1.159) ]──[Measure]── c0
 ```
 
-The observed distribution is about $30.6\\%$ ones rather than $50\\%$. Under a fair-coin assumption, that difference is roughly $17$ standard errors for $2{,}000$ independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
+The observed distribution is about 30.6% ones rather than 50%. Under a fair-coin assumption, that difference is roughly $17$ standard errors for $2{,}000$ independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
 
 A histogram in the notebook makes the difference easy to see: $1{,}389$ zeros versus $611$ ones. The lesson is practical: an apparently random output should be tested against its expected distribution before it is used as evidence for an unusual claim.
 
@@ -70,9 +70,9 @@ A histogram in the notebook makes the difference easy to see: $1{,}389$ zeros ve
 The notebook prepares a Bell pair using an H gate followed by a CNOT. The resulting Bell state is $\lvert\Phi^+\rangle=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt{2}}$.
 
 ```text
-Alice: $\\lvert 0 \\rangle$ ──[ H ]──■────────[Measure]── c0
+Alice: `|0⟩` ──[ H ]──■────────[Measure]── c0
                     │
-Bob:   $\\lvert 0 \\rangle$ ──────────[XOR]────[Measure]── c1
+Bob:   `|0⟩` ──────────[XOR]────[Measure]── c1
                     CNOT
 ```
 
