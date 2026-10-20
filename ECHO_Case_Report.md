@@ -28,8 +28,8 @@ The notebook reports:
 
 | Test | Observed result | What it tells us |
 |---|---:|---|
-| X gate on \\(\lvert 0\rangle\\) | 1 in 1,000 shots | X flips the computational-basis bit |
-| H gate on \\(\lvert 0\rangle\\) | 0: 1,016; 1: 984 (2,000 shots) | Outcomes are approximately balanced |
+| X gate on `|0⟩` | 1 in 1,000 shots | X flips the computational-basis bit |
+| H gate on `|0⟩` | 0: 1,016; 1: 984 (2,000 shots) | Outcomes are approximately balanced |
 | H followed by H | 0 in 1,000 shots | H is its own inverse |
 | X on the first and third qubits | `101` in 1,000 shots | The circuit prepares the expected bit pattern |
 
@@ -55,9 +55,9 @@ The H-gate circuit returned 512 zeros and 488 ones over 1,000 shots, consistent 
 
 The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was:
 
-[
+$
 P(1)=\frac{611}{2000}=0.3055
-]
+$
 
 For this circuit, the theoretical probability is $\sin^2(1.159/2) \approx 0.30$, matching the observed result.
 
@@ -73,9 +73,9 @@ A histogram in the notebook makes the difference easy to see: 1,389 zeros versus
 
 The notebook prepares a Bell pair using an H gate followed by a CNOT:
 
-[
+$
 \lvert\Phi^+\rangle=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt{2}}
-]
+$
 
 ```text
 Alice: |0> ──[ H ]──■────────[Measure]── c0
