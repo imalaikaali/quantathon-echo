@@ -143,9 +143,13 @@ For the communication claim, the key check is separate from calculating CHSH: co
 4. **Message provenance unknown:** Decoding **ECHO** does not establish its author, timestamp or transmission mechanism.
 5. **Disappearance unresolved:** No independent physical, witness or laboratory-log evidence was supplied to explain Dr. Mahmud’s disappearance.
 
-## Conclusion and verdict
+## Final Verdict — Under the Laws of Quantum Mechanics
 
-The notebook reproduces expected quantum-circuit behaviour, demonstrates the intended seed bias, simulates Bell-state correlations, reports a CHSH value near the quantum maximum, and decodes the supplied bitstream as **ECHO**. These are coherent results within the programmed model. They do not demonstrate a usable faster-than-light signal.
+ECHO did not fail because quantum entanglement was imaginary; it failed because quantum correlations were treated as proof of communication. Our simulations reproduce the behaviour predicted by quantum mechanics, but the decisive evidence for faster-than-light information transfer is absent. The strongest explanation supported by the code is that the experiment’s results were misinterpreted—or that the message had a conventional origin.
+
+Under established quantum mechanics, entanglement alone cannot transmit usable information faster than light. The results therefore support a firm scientific conclusion: **ECHO’s claimed breakthrough remains unproven—not because entanglement is unreal, but because correlation is not communication.**
+
+Dr. Mahmud’s disappearance remains unexplained. The scientific verdict is credible; the human mystery is not solved.
 
 **Case status:** Simulated quantum behaviour reproduced; FTL messaging not demonstrated; Dr. Mahmud’s disappearance unresolved.
 
