@@ -29,7 +29,7 @@ The notebook reports the following results:
 | Test | Observed result | What it tells us |
 |---|---:|---|
 | X gate applied to `|0⟩` | 1 in 1,000 shots | X flips the computational-basis bit |
-| H gate applied to $|0\rangle$ | $0$: $1{,}016$; $1$: $984$ ($2{,}000$ shots) | Outcomes are approximately balanced |
+| H gate applied to `|0⟩` | 0: 1,016; 1: 984 (2,000 shots) | Outcomes are approximately balanced |
 | H followed by H | $0$ in $1{,}000$ shots | H is its own inverse |
 | X on the first and third qubits | $101$ in $1{,}000$ shots | The circuit prepares the expected bit pattern |
 
