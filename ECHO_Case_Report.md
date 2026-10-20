@@ -8,7 +8,7 @@
 
 This investigation tested whether the supplied ECHO evidence demonstrates faster-than-light (FTL) messaging through quantum entanglement. The notebook reproduces expected gate behaviour, shows that the configured seed circuit is biased, produces the expected correlations for a simulated Bell pair, and decodes the supplied bitstream as **ECHO**.
 
-The notebook’s optional CHSH calculation returns approximately **S = 2.83**, above the local-hidden-variable bound of 2 and close to the quantum maximum of $2\\sqrt{2} \\approx 2.828$. This is consistent with the correlations predicted by quantum theory. However, it is a **simulation result, not a physical Bell-test experiment**. It cannot establish what happened on Dr. Mahmud’s real apparatus.
+The notebook’s optional CHSH calculation returns approximately **S = 2.83**, above the local-hidden-variable bound of 2 and close to the quantum maximum of $2\sqrt{2} \approx 2.828$. This is consistent with the correlations predicted by quantum theory. However, it is a **simulation result, not a physical Bell-test experiment**. It cannot establish what happened on Dr. Mahmud’s real apparatus.
 
 **Verdict:** The supplied simulations are consistent with standard quantum mechanics, but they do not demonstrate a controllable faster-than-light communication channel. The decoded word is a clue, not proof of its origin or transmission method. Dr. Mahmud’s disappearance remains unresolved.
 
@@ -59,7 +59,7 @@ The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 
 P(1)=\frac{611}{2000}=0.3055
 ]
 
-For this circuit, the theoretical probability is (\sin^2(1.159/2)\approx 0.30), matching the observed result.
+For this circuit, the theoretical probability is $\sin^2(1.159/2) \approx 0.30$, matching the observed result.
 
 ```text
 Seed circuit:  |0> ──[ RY(1.159) ]──[Measure]── c0
@@ -88,7 +88,7 @@ In the computational (Z) basis, the notebook reports 975 outcomes of `00` and 1,
 
 The notebook then applies H to both qubits before measurement. The simulated Bell pair again produces only matching outcomes (1,031 `00`; 969 `11`). In the notebook’s simplified classical comparison, the rotated pre-agreed-bit model produces all four outcomes. This illustrates why measurements in more than one basis can reveal differences that a single correlation test misses. It is a teaching comparison, not a complete physical Bell test.
 
-The notebook’s optional CHSH cell reports **S ≈ 2.83**. For a valid CHSH test, local-hidden-variable models satisfy (|S|\leq2), while quantum theory permits values up to (2\sqrt{2}\approx2.828) [2, 3]. The reported value is therefore consistent with the ideal quantum prediction. Because it comes from a programmed simulator, it verifies the expected behaviour of that model; it does **not** independently demonstrate that a real device violated a Bell inequality or rule out every alternative explanation of the real ECHO apparatus.
+The notebook’s optional CHSH cell reports **S ≈ 2.83**. For a valid CHSH test, local-hidden-variable models satisfy $|S| \leq 2$, while quantum theory permits values up to $2\sqrt{2} \approx 2.828$ [2, 3]. The reported value is therefore consistent with the ideal quantum prediction. Because it comes from a programmed simulator, it verifies the expected behaviour of that model; it does **not** independently demonstrate that a real device violated a Bell inequality or rule out every alternative explanation of the real ECHO apparatus.
 
 The central distinction is that Bell correlations can be stronger than classical local models allow without providing a controllable message. Alice cannot choose the random result she gets, and Bob’s local distribution does not reveal Alice’s setting by itself. They must compare records using an ordinary communication channel.
 
@@ -113,7 +113,7 @@ The no-cloning theorem is relevant to quantum information, but classical repetit
 |---|---|---|
 | 01 — Gatekeeper | X, H and H–H behave as expected | Basic circuit checks pass in simulation |
 | 02 — Honest Coin | Seed circuit gives $P(1)=0.3055$ | This configured seed is biased, as expected from its rotation |
-| 03 — Two Observers | Bell correlations; optional CHSH (S\approx2.83) | Results match the ideal quantum model; not a physical Bell test |
+| 03 — Two Observers | Bell correlations; optional CHSH ($S \approx 2.83$) | Results match the ideal quantum model; not a physical Bell test |
 | 05 — Damaged Message | Majority voting decodes `ECHO` | The supplied data contain that message under the chosen code |
 
 ## 4. Alternative explanations
