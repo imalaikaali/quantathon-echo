@@ -8,7 +8,7 @@
 
 This investigation tested whether the supplied ECHO evidence demonstrates faster-than-light (FTL) messaging through quantum entanglement. The notebook reproduces expected gate behaviour, shows that the configured seed circuit is biased, produces the expected correlations for a simulated Bell pair, and decodes the supplied bitstream as **ECHO**.
 
-The notebook’s optional CHSH calculation returns approximately **S = 2.83**, above the local-hidden-variable bound of 2 and close to the quantum maximum of (2\sqrt{2}\). This is consistent with the correlations predicted by quantum theory. However, it is a **simulation result, not a physical Bell-test experiment**. It cannot establish what happened on Dr. Mahmud’s real apparatus.
+The notebook’s optional CHSH calculation returns approximately **S = 2.83**, above the local-hidden-variable bound of 2 and close to the quantum maximum of $2\\sqrt{2} \\approx 2.828$. This is consistent with the correlations predicted by quantum theory. However, it is a **simulation result, not a physical Bell-test experiment**. It cannot establish what happened on Dr. Mahmud’s real apparatus.
 
 **Verdict:** The supplied simulations are consistent with standard quantum mechanics, but they do not demonstrate a controllable faster-than-light communication channel. The decoded word is a clue, not proof of its origin or transmission method. Dr. Mahmud’s disappearance remains unresolved.
 
