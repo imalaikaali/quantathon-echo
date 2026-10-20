@@ -24,61 +24,61 @@ We therefore tested the notebook’s circuits and considered whether bias, a pre
 
 ### Module 01 — Gate-function checks
 
-The notebook reports:
+The notebook reports the following results:
 
 | Test | Observed result | What it tells us |
 |---|---:|---|
-| X gate on `|0⟩` | 1 in 1,000 shots | X flips the computational-basis bit |
-| H gate on `|0⟩` | 0: 1,016; 1: 984 (2,000 shots) | Outcomes are approximately balanced |
-| H followed by H | 0 in 1,000 shots | H is its own inverse |
-| X on the first and third qubits | `101` in 1,000 shots | The circuit prepares the expected bit pattern |
+| X gate applied to $\\lvert 0 \\rangle$ | $1$ in $1{,}000$ shots | X flips the computational-basis bit |
+| H gate applied to $\\lvert 0 \\rangle$ | $0$: $1{,}016$; $1$: $984$ ($2{,}000$ shots) | Outcomes are approximately balanced |
+| H followed by H | $0$ in $1{,}000$ shots | H is its own inverse |
+| X on the first and third qubits | $101$ in $1{,}000$ shots | The circuit prepares the expected bit pattern |
 
 These are useful control checks: they show that the simulated circuits behave as expected. They do not, by themselves, provide evidence about the missing laboratory equipment.
 
 **Circuit sketches** (schematic; time runs from left to right):
 
 ```text
-X test:       |0> ──[ X ]──[Measure]── c0
+X test:       $\\lvert 0 \\rangle$ ──[ X ]──[Measure]── c0
 
-H test:       |0> ──[ H ]──[Measure]── c0
+H test:       $\\lvert 0 \\rangle$ ──[ H ]──[Measure]── c0
 
-H then H:     |0> ──[ H ]──[ H ]──[Measure]── c0
+H then H:     $\\lvert 0 \\rangle$ ──[ H ]──[ H ]──[Measure]── c0
 
-Vault code:   |0> ──[ X ]──────────────[Measure]── c0
-              |0> ─────────────────────[Measure]── c1
-              |0> ──[ X ]──────────────[Measure]── c2
+Vault code:   $\\lvert 0 \\rangle$ ──[ X ]──────────────[Measure]── c0
+              $\\lvert 0 \\rangle$ ─────────────────────[Measure]── c1
+              $\\lvert 0 \\rangle$ ──[ X ]──────────────[Measure]── c2
 ```
 
 ### Module 02 — The “Honest Coin” and seed bias
 
-The H-gate circuit returned 512 zeros and 488 ones over 1,000 shots, consistent with a fair quantum coin within ordinary sampling variation.
+The H-gate circuit returned $512$ zeros and $488$ ones over $1{,}000$ shots, consistent with a fair quantum coin within ordinary sampling variation.
 
 The seed circuit uses an $R_Y(1.159)$ rotation. It returned 1,389 zeros and 611 ones in 2,000 shots, so the observed probability of 1 was $P(1)=\frac{611}{2000}=0.3055$.
 
 For this circuit, the theoretical probability is $\sin^2(1.159/2) \approx 0.30$, matching the observed result.
 
 ```text
-Seed circuit:  |0> ──[ RY(1.159) ]──[Measure]── c0
+Seed circuit:  $\\lvert 0 \\rangle$ ──[ RY(1.159) ]──[Measure]── c0
 ```
 
-The observed distribution is about 30.6% ones rather than 50%. Under a fair-coin assumption, that difference is roughly 17 standard errors for 2,000 independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
+The observed distribution is about $30.6\\%$ ones rather than $50\\%$. Under a fair-coin assumption, that difference is roughly $17$ standard errors for $2{,}000$ independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
 
-A histogram in the notebook makes the difference easy to see: 1,389 zeros versus 611 ones. The lesson is practical: an apparently random output should be tested against its expected distribution before it is used as evidence for an unusual claim.
+A histogram in the notebook makes the difference easy to see: $1{,}389$ zeros versus $611$ ones. The lesson is practical: an apparently random output should be tested against its expected distribution before it is used as evidence for an unusual claim.
 
 ### Module 03 — Bell pair and CHSH calculation
 
 The notebook prepares a Bell pair using an H gate followed by a CNOT. The resulting Bell state is $\lvert\Phi^+\rangle=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt{2}}$.
 
 ```text
-Alice: |0> ──[ H ]──■────────[Measure]── c0
+Alice: $\\lvert 0 \\rangle$ ──[ H ]──■────────[Measure]── c0
                     │
-Bob:   |0> ──────────[XOR]────[Measure]── c1
+Bob:   $\\lvert 0 \\rangle$ ──────────[XOR]────[Measure]── c1
                     CNOT
 ```
 
-In the computational (Z) basis, the notebook reports 975 outcomes of `00` and 1,025 of `11` in 2,000 shots. The two bits agree in every recorded shot. However, agreement alone does not establish entanglement: a simple classical model that pre-agrees to output either `00` or `11` can imitate that one result.
+In the computational (Z) basis, the notebook reports $975$ outcomes of $00$ and $1{,}025$ of $11$ in $2{,}000$ shots. The two bits agree in every recorded shot. However, agreement alone does not establish entanglement: a simple classical model that pre-agrees to output either $00$ or $11$ can imitate that one result.
 
-The notebook then applies H to both qubits before measurement. The simulated Bell pair again produces only matching outcomes (1,031 `00`; 969 `11`). In the notebook’s simplified classical comparison, the rotated pre-agreed-bit model produces all four outcomes. This illustrates why measurements in more than one basis can reveal differences that a single correlation test misses. It is a teaching comparison, not a complete physical Bell test.
+The notebook then applies H to both qubits before measurement. The simulated Bell pair again produces only matching outcomes ($1{,}031$ $00$; $969$ $11$). In the notebook’s simplified classical comparison, the rotated pre-agreed-bit model produces all four outcomes. This illustrates why measurements in more than one basis can reveal differences that a single correlation test misses. It is a teaching comparison, not a complete physical Bell test.
 
 The notebook’s optional CHSH cell reports **S ≈ 2.83**. For a valid CHSH test, local-hidden-variable models satisfy $|S| \leq 2$, while quantum theory permits values up to $2\sqrt{2} \approx 2.828$ [2, 3]. The reported value is therefore consistent with the ideal quantum prediction. Because it comes from a programmed simulator, it verifies the expected behaviour of that model; it does **not** independently demonstrate that a real device violated a Bell inequality or rule out every alternative explanation of the real ECHO apparatus.
 
@@ -86,7 +86,7 @@ The central distinction is that Bell correlations can be stronger than classical
 
 ### Module 05 — Decoding the damaged message
 
-The supplied stream contains 32 groups of three bits. The notebook applies majority voting to each triple and converts the resulting 32 bits into four ASCII characters. It obtains:
+The supplied stream contains $32$ groups of three bits. The notebook applies majority voting to each triple and converts the resulting $32$ bits into $4$ ASCII characters. It obtains:
 
 ```text
 Triples → majority vote → 01000101 01000011 01001000 01001111
@@ -95,7 +95,7 @@ Triples → majority vote → 01000101 01000011 01001000 01001111
 Decoded message: ECHO
 ```
 
-A three-bit repetition code can correct one flipped copy in a triple. It can fail when two copies are wrong; for example, `000` changed to `110` is decoded as 1 by majority vote. The word **ECHO** is the result of applying the specified decoding rule to the supplied stream. It does not establish who created the bits, when they were created, or whether they travelled faster than light.
+A three-bit repetition code can correct one flipped copy in a triple. It can fail when two copies are wrong; for example, $000$ changed to $110$ is decoded as 1 by majority vote. The word **ECHO** is the result of applying the specified decoding rule to the supplied stream. It does not establish who created the bits, when they were created, or whether they travelled faster than light.
 
 The no-cloning theorem is relevant to quantum information, but classical repetition coding should not be confused with copying an unknown quantum state. Quantum error correction uses specially designed encodings and measurements rather than simply duplicating an arbitrary unknown qubit [4].
 
@@ -106,7 +106,7 @@ The no-cloning theorem is relevant to quantum information, but classical repetit
 | 01 — Gatekeeper | X, H and H–H behave as expected | Basic circuit checks pass in simulation |
 | 02 — Honest Coin | Seed circuit gives $P(1)=0.3055$ | This configured seed is biased, as expected from its rotation |
 | 03 — Two Observers | Bell correlations; optional CHSH ($S \approx 2.83$) | Results match the ideal quantum model; not a physical Bell test |
-| 05 — Damaged Message | Majority voting decodes `ECHO` | The supplied data contain that message under the chosen code |
+| 05 — Damaged Message | Majority voting decodes **ECHO** | The supplied data contain that message under the chosen code |
 
 ## 4. Alternative explanations
 
@@ -130,7 +130,7 @@ For the communication claim, the key check is separate from calculating CHSH: co
 1. **Simulation only:** The notebook models circuits in Qiskit; it does not test the missing apparatus.
 2. **Idealized conditions:** The simulated CHSH result does not include the full practical complications of a physical Bell test.
 3. **Limited classical comparison:** The notebook tests one simple pre-agreed-bit model. The CHSH inequality is the broader theoretical test, but the notebook’s simulated value is not itself experimental evidence.
-4. **Message provenance unknown:** Decoding `ECHO` does not establish its author, timestamp or transmission mechanism.
+4. **Message provenance unknown:** Decoding **ECHO** does not establish its author, timestamp or transmission mechanism.
 5. **Disappearance unresolved:** No independent physical, witness or laboratory-log evidence was supplied to explain Dr. Mahmud’s disappearance.
 
 ## Conclusion and verdict
