@@ -28,7 +28,7 @@ The notebook reports the following results:
 
 | Test | Observed result | What it tells us |
 |---|---:|---|
-| X gate applied to $\\lvert 0 \\rangle$ | $1$ in $1{,}000$ shots | X flips the computational-basis bit |
+| X gate applied to `|0⟩` | 1 in 1,000 shots | X flips the computational-basis bit |
 | H gate applied to $|0\rangle$ | $0$: $1{,}016$; $1$: $984$ ($2{,}000$ shots) | Outcomes are approximately balanced |
 | H followed by H | $0$ in $1{,}000$ shots | H is its own inverse |
 | X on the first and third qubits | $101$ in $1{,}000$ shots | The circuit prepares the expected bit pattern |
@@ -53,17 +53,17 @@ Vault code:   |0>  ──[ X ]──────────────[Measure
 
 The H-gate circuit returned $512$ zeros and $488$ ones over $1{,}000$ shots, consistent with a fair quantum coin within ordinary sampling variation.
 
-The seed circuit uses an $R_Y(1.159)$ rotation. It returned $1{,}389$ zeros and $611$ ones in $2{,}000$ shots. The observed probability of measuring $1$ was:
+The seed circuit uses an \(R_Y(1.159)\) rotation. It returned 1,389 zeros and 611 ones in 2,000 shots. The observed probability of measuring 1 was:
 
-$
+\[
 P(1)=\frac{611}{2000}=0.3055
-$
+\]
 
 For this circuit, the theoretical probability is:
 
-$
-P(1)=\sin^2\left(\frac{1.159}{2}\right) \approx 0.30
-$
+\[
+P(1)=\sin^2\left(\frac{1.159}{2}\right)\approx 0.30
+\]
 
 This matches the observed result.
 
@@ -71,7 +71,7 @@ This matches the observed result.
 Seed circuit:  |0>  ──[ RY(1.159) ]──[Measure]── c0
 ```
 
-The observed distribution is about $30.6\%$ ones rather than $50\%$. Under a fair-coin assumption, that difference is roughly $17$ standard errors for $2{,}000$ independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
+The observed distribution is about 30.6% ones rather than 50%. Under a fair-coin assumption, that difference is roughly 17 standard errors for 2,000 independent shots. This is a strong mismatch **for this simulated circuit**—not evidence that ECHO’s real trigger used the same circuit or had the same bias.
 
 A histogram in the notebook makes the difference easy to see: $1{,}389$ zeros versus $611$ ones. The lesson is practical: an apparently random output should be tested against its expected distribution before it is used as evidence for an unusual claim.
 
