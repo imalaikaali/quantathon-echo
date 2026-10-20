@@ -156,4 +156,4 @@ The notebook reproduces expected quantum-circuit behaviour, demonstrates the int
 
 ## AI-use disclosure
 
-ChatGPT assisted with organizing the report, refining explanations, and formatting the document. The team is responsible for checking the notebook outputs and references, understanding the analysis, and being able to explain the conclusions during the presentation.
+ChatGPT assisted with organizing the report, refining explanations, and formatting the document.
